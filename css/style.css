@@ -1,0 +1,287 @@
+/* =========================
+   リセット & 基本
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #222;
+  line-height: 1.8;
+  background: #fff;
+}
+
+.inner {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+/* =========================
+   ヒーロー
+========================= */
+.hero {
+  height: 100vh;
+  background: url("../images/aaa.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-sub {
+  margin-top: 20px;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+/* =========================
+   カラー
+========================= */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.color-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s;
+}
+
+.color-card:hover img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   FEATURE
+========================= */
+.feature {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.feature img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.feature-text {
+  width: 100%;
+}
+
+/* =========================
+   KV（完成版）
+========================= */
+.kv {
+  background: linear-gradient(to right, #fbbac6 50%, #fad7de 50%);
+  overflow: hidden;
+}
+
+.kv-inner {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* テキスト */
+.kv-text {
+  width: 50%;
+  padding: 80px;
+  color: #fff;
+  z-index: 2;
+}
+
+.kv-text h1 {
+  font-size: 28px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+
+/* 画像エリア */
+.kv-image {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 30px;        /* 画像の間の余白 */
+  width: 45%;
+}
+
+/* 画像共通 */
+.kv-image img {
+  width: 50%;       /* 2枚だから50%ずつ */
+  border-radius: 20px;
+  display: block;
+}
+
+/* 左の画像（小さい方） */
+.kv-image img:first-child {
+  width: 50%;
+  margin-top: 40px;      /* ← ズレ弱める */
+  border-radius: 20px;
+}
+
+/* 右の画像（大きい方） */
+.kv-image img:last-child {
+  width: 58%;
+  border-radius: 20px;
+}
+
+.kv-image img {
+  width: 50%;
+  aspect-ratio: 4 / 5;  /* 好きな比率に */
+  object-fit: cover;
+}
+
+/* =========================
+   スマホ
+========================= */
+@media (max-width: 768px) {
+
+  .kv {
+    background: #c9a79b;
+  }
+
+  .kv-inner {
+    flex-direction: column;
+  }
+
+  .kv-text {
+    width: 100%;
+    padding: 60px 30px;
+  }
+
+  .kv-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 40px;
+    gap: 10px;
+  }
+
+  .kv-image img {
+    width: 50%;
+  }
+
+  .kv-image img:first-child {
+    margin-top: 0;
+  }
+}
+
+/* =========================
+   CTA
+========================= */
+.cta {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.btn {
+  background: #111;
+  color: #fff;
+  padding: 18px 60px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+/* =========================
+   アニメーション
+========================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   PC
+========================= */
+@media (min-width: 768px) {
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .feature:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .feature img {
+    width: 50%;
+  }
+
+  .feature-text {
+    width: 50%;
+  }
+
+  /* KV PC */
+  .kv-inner {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+
+  .kv-text {
+    width: 50%;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .kv-image {
+    width: 50%;
+  }
+
+  .kv-text h1 {
+    font-size: 28px;
+  }
+}
+
+/* 背景 */
+ body { background: #ffdfe5 !important; }
