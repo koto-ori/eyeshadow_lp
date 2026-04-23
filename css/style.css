@@ -11,7 +11,7 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   color: #222;
   line-height: 1.8;
-  background: #fff;
+  background: #ffdfe5;
 }
 
 .inner {
@@ -32,7 +32,7 @@ body {
 }
 
 /* =========================
-   ヒーロー
+   HERO
 ========================= */
 .hero {
   height: 100vh;
@@ -55,7 +55,209 @@ body {
 }
 
 /* =========================
-   カラー
+   WORRIES
+========================= */
+.worries {
+  padding: 100px 20px;
+  background-color: #fad7de;
+}
+
+.worries__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.worries__title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.worries__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.worries__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f4c6cf;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   FEATURE（完全整理版）
+========================= */
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.feature img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.feature-text {
+  width: 100%;
+}
+
+.feature-text h3 {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.feature-text p {
+  line-height: 1.8;
+}
+
+/* PC時に横並び＋交互 */
+@media (min-width: 768px) {
+
+  .feature {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* 偶数だけ逆 */
+  .features .feature:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .feature img {
+    width: 50%;
+  }
+
+  .feature-text {
+    width: 50%;
+  }
+}
+
+/* =========================
+   REVIEW
+========================= */
+
+.review {
+  padding: 120px 20px;
+  background-color: #ffdfe5;
+}
+
+.review__inner {
+  max-width: 900px;   /* ← 広げる */
+  margin: 0 auto;
+}
+
+.review__title {
+  text-align: center;
+  font-size: 28px;   /* ← 大きく */
+  font-weight: 600;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+/* 口コミ1件 */
+.review__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* アイコン */
+.review__icon img {
+  width: 70px;       /* ← 大きく */
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 吹き出し */
+.review__content {
+  background: #fdf7f9;
+  padding: 24px;     /* ← 余白増やす */
+  border-radius: 16px;
+  position: relative;
+  flex: 1;
+}
+
+/* 吹き出し三角 */
+.review__content::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #fdf7f9 transparent transparent;
+}
+
+/* 星 */
+.review__stars {
+  color: #f5b301;
+  font-size: 16px;   /* ← 少し大きく */
+  margin-bottom: 8px;
+}
+
+/* テキスト */
+.review__text {
+  font-size: 16px;   /* ← 14→16 */
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.review__meta {
+  font-size: 13px;
+  color: #888;
+}
+
+/* =========================
+   PCでさらにゆったり
+========================= */
+@media (min-width: 768px) {
+
+  .review__item {
+    gap: 32px;
+  }
+
+  .review__icon img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .review__content {
+    padding: 32px;
+  }
+
+  .review__text {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================
+   COLOR GRID
 ========================= */
 .color-grid {
   display: grid;
@@ -68,129 +270,66 @@ body {
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.4s;
+  transition: 0.4s;
 }
 
 .color-card:hover img {
   transform: scale(1.05);
 }
 
-/* =========================
-   FEATURE
-========================= */
-.feature {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 60px;
-}
-
-.feature img {
-  width: 100%;
-  border-radius: 16px;
-}
-
-.feature-text {
-  width: 100%;
+@media (min-width: 768px) {
+  .color-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* =========================
-   KV（完成版）
+   KV
 ========================= */
 .kv {
   background: linear-gradient(to right, #fbbac6 50%, #fad7de 50%);
-  overflow: hidden;
 }
 
 .kv-inner {
   display: flex;
-  align-items: center;
   min-height: 100vh;
+  align-items: center;
   position: relative;
 }
 
-/* テキスト */
 .kv-text {
   width: 50%;
   padding: 80px;
   color: #fff;
-  z-index: 2;
 }
 
-.kv-text h1 {
-  font-size: 28px;
-  line-height: 2;
-  margin-bottom: 30px;
-}
-
-/* 画像エリア */
 .kv-image {
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 50%;
   display: flex;
-  gap: 30px;        /* 画像の間の余白 */
-  width: 45%;
-}
-
-/* 画像共通 */
-.kv-image img {
-  width: 50%;       /* 2枚だから50%ずつ */
-  border-radius: 20px;
-  display: block;
-}
-
-/* 左の画像（小さい方） */
-.kv-image img:first-child {
-  width: 50%;
-  margin-top: 40px;      /* ← ズレ弱める */
-  border-radius: 20px;
-}
-
-/* 右の画像（大きい方） */
-.kv-image img:last-child {
-  width: 58%;
-  border-radius: 20px;
+  gap: 30px;
 }
 
 .kv-image img {
   width: 50%;
-  aspect-ratio: 4 / 5;  /* 好きな比率に */
+  border-radius: 20px;
   object-fit: cover;
 }
 
-/* =========================
-   スマホ
-========================= */
+/* スマホ */
 @media (max-width: 768px) {
-
-  .kv {
-    background: #c9a79b;
-  }
 
   .kv-inner {
     flex-direction: column;
   }
 
-  .kv-text {
+  .kv-text,
+  .kv-image {
     width: 100%;
-    padding: 60px 30px;
+    padding: 40px 20px;
   }
 
   .kv-image {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-top: 40px;
     gap: 10px;
-  }
-
-  .kv-image img {
-    width: 50%;
-  }
-
-  .kv-image img:first-child {
-    margin-top: 0;
   }
 }
 
@@ -207,7 +346,6 @@ body {
   color: #fff;
   padding: 18px 60px;
   text-decoration: none;
-  letter-spacing: 2px;
   transition: 0.3s;
 }
 
@@ -229,59 +367,3 @@ body {
   transform: translateY(0);
 }
 
-/* =========================
-   PC
-========================= */
-@media (min-width: 768px) {
-
-  .hero-title {
-    font-size: 60px;
-  }
-
-  .color-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .feature {
-    flex-direction: row;
-    align-items: center;
-    gap: 60px;
-  }
-
-  .feature:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .feature img {
-    width: 50%;
-  }
-
-  .feature-text {
-    width: 50%;
-  }
-
-  /* KV PC */
-  .kv-inner {
-    flex-direction: row;
-    min-height: 100vh;
-  }
-
-  .kv-text {
-    width: 50%;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .kv-image {
-    width: 50%;
-  }
-
-  .kv-text h1 {
-    font-size: 28px;
-  }
-}
-
-/* 背景 */
- body { background: #ffdfe5 !important; }
